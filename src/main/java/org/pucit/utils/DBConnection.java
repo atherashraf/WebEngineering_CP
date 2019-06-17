@@ -1,6 +1,6 @@
-package org.pucit.org.pucit.utils;
+package org.pucit.utils;
 
-import org.pucit.org.pucit.enumerators.ResponseType;
+import org.pucit.enumerators.ResponseType;
 
 import java.sql.*;
 import java.util.List;
@@ -12,10 +12,9 @@ public class DBConnection {
     private PreparedStatement preparedStatement = null;
 
     public DBConnection() {
-        final String DB_URL = "jdbc:mysql://176.58.124.95:3306/test";
-//        final String DB_URL = "jdbc:mysql://localhost:3306/pucit";
+        final String DB_URL = "jdbc:mysql://localhost:3306/pucit";
         final String USER = "root";
-        final String PASS = "mysqlroot";
+        final String PASS = "";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -23,6 +22,16 @@ public class DBConnection {
             isError = true;
             msg = "Fail to connect to database";
             e.printStackTrace();
+        }
+    }
+
+    public void closeConnection(){
+        if(this.conn != null) {
+            try {
+                this.conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -70,7 +79,7 @@ public class DBConnection {
             if (!this.isError) {
                 this.preparedStatement = this.conn.prepareStatement(stmt);
                 for (int i=0;  i < values.size(); i++) {
-                    this.preparedStatement.setString(i, values.get(i));
+                    this.preparedStatement.setString(i+1, values.get(i));
                 }
             }
         } catch (Exception e) {
@@ -94,4 +103,5 @@ public class DBConnection {
             }
         }
     }
+
 }

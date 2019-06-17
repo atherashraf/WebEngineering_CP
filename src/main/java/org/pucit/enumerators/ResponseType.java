@@ -1,4 +1,4 @@
-package org.pucit.org.pucit.enumerators;
+package org.pucit.enumerators;
 
 public enum ResponseType {
    SUCCESS("alert-success"),

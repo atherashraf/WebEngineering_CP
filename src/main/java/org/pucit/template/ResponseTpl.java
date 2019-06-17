@@ -2,7 +2,7 @@ package org.pucit.template;
 
 
 import com.google.gson.Gson;
-import org.pucit.org.pucit.enumerators.ResponseType;
+import org.pucit.enumerators.ResponseType;
 
 public class ResponseTpl {
     private String resType;

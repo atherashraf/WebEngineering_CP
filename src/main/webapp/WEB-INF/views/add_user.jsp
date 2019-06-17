@@ -21,7 +21,7 @@
     <h2>${message}</h2>
     <div class="row">
         <div class="col-12">
-            <form id="addUserForm">
+            <form id="addUserForm" action="insert_user" method="post">
                 <div class="form-group">
                     <label for="txtUserName">User Name</label>
                     <input class="form-control form-control-sm" type="text" id="txtUserName" name="user_name"
@@ -39,10 +39,10 @@
                 </div>
                 <div class="form-group">
                     <label for="cmbUserType">User Type</label>
-                    <select class="form-control form-control-sm" id="cmbUserType" nam="user_type" required>
+                    <select class="form-control form-control-sm" id="cmbUserType" name="user_type" required>
                         <c:forEach var="map" items="${userTypes}">
                             <c:forEach items="${map}" var="user">
-                                <option vlaue="${user.value}">${user.key}</option>
+                                <option value="${user.value}">${user.key}</option>
                             </c:forEach>
                         </c:forEach>
                     </select>

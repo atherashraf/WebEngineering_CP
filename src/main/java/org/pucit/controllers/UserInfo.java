@@ -1,16 +1,14 @@
 package org.pucit.controllers;
 
-import org.pucit.org.pucit.enumerators.ResponseType;
-import org.pucit.org.pucit.enumerators.UserType;
-import org.pucit.org.pucit.utils.DBConnection;
+import org.pucit.enumerators.ResponseType;
+import org.pucit.enumerators.UserType;
+import org.pucit.utils.DBConnection;
 import org.pucit.template.ResponseTpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -36,7 +34,7 @@ public class UserInfo {
         dbConnection.createTable(ddl);
         res.setResponseType(dbConnection.getResponseType());
         res.setMsg(dbConnection.getMsg());
-
+        dbConnection.closeConnection();
         return res.toJSON();
     }
 
@@ -59,7 +57,7 @@ public class UserInfo {
         return model;
     }
 
-    @RequestMapping(value = "/insert_user", method = RequestMethod.GET)
+    @RequestMapping(value = "/insert_user", method = RequestMethod.POST)
     public @ResponseBody
     String inserUser(@RequestParam("user_name") String userName, @RequestParam("email") String email,
                      @RequestParam("pass") String pass, @RequestParam("user_type") String userType,
@@ -74,7 +72,7 @@ public class UserInfo {
         values.add(userType);
         dbConn.preparedStatement(insertStatement, values);
         dbConn.executeDMLOperation();
-
+        dbConn.closeConnection();
         responseTpl.setResponseType(dbConn.getResponseType());
         responseTpl.setMsg(dbConn.getMsg());
         return responseTpl.toJSON();

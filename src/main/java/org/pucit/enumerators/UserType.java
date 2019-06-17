@@ -1,4 +1,4 @@
-package org.pucit.org.pucit.enumerators;
+package org.pucit.enumerators;
 
 public enum UserType {
     USER("Siter User", "user"),
