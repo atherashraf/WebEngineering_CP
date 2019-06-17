@@ -5,13 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.pucit</groupId>
-  <artifactId>MavenSpringMVC_lec</artifactId>
+  <artifactId>WebEngineering_CP</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>MavenSpringMVC_lec Maven Webapp</name>
+  <name>WebEngineering_CP Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <!--<url>http://www.example.com</url>-->
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
