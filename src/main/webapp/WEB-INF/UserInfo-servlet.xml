@@ -10,7 +10,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <mvc:resources mapping="/**" location="/resources"
+    <mvc:resources mapping="/**" location="/WEB-INF/resources"
                    cache-period="31556926"/>
 
     <mvc:annotation-driven />

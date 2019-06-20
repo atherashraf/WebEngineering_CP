@@ -20,6 +20,9 @@
 <div class="container">
     <h2>${message}</h2>
     <div class="row">
+        <div class="col-12 alert" id="divResponseAlert" style="display:none"></div>
+    </div>
+    <div class="row">
         <div class="col-12">
             <form id="addUserForm" action="insert_user" method="post">
                 <div class="form-group">
@@ -56,38 +59,22 @@
     </div>
 </div>
 </body>
+<script src="resources/js/common_utils.js"></script>
 <script>
-    // $(document).ready(function() {
-    //     $('#addUserForm').bootstrapValidator({
-    //         feedbackIcons: {
-    //             valid: 'glyphicon glyphicon-ok',
-    //             invalid: 'glyphicon glyphicon-remove',
-    //             validating: 'glyphicon glyphicon-refresh'
-    //         },
-    //         fields: {
-    //             username: {
-    //                 validators: {
-    //                     notEmpty: {
-    //                         message: 'The full name is required'
-    //                     }
-    //                 }
-    //             },
-    //             email: {
-    //                 validators: {
-    //                     notEmpty: {
-    //                         message: 'The full name is required'
-    //                     }
-    //                 }
-    //             },
-    //             pass: {
-    //                 validators: {
-    //                     notEmpty: {
-    //                         message: 'The full name is required'
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     });
-    // });
+
+    $( "#addUserForm" ).submit(function( event ) {
+        event.preventDefault();
+        var form = $(this);
+        var url = form.attr('action');
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: 'json',
+            data: form.serialize(), // serializes the form's elements.
+            success: function(res) {
+                showResponseAlert(res.resType,res.msg);
+            }
+        });
+    });
 </script>
 </html>

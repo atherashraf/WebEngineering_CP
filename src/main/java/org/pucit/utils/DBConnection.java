@@ -14,7 +14,7 @@ public class DBConnection {
     public DBConnection() {
         final String DB_URL = "jdbc:mysql://localhost:3306/pucit";
         final String USER = "root";
-        final String PASS = "";
+        final String PASS = "mysqlroot";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
