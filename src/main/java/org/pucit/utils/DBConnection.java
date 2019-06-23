@@ -12,7 +12,7 @@ public class DBConnection {
     private PreparedStatement preparedStatement = null;
 
     public DBConnection() {
-        final String DB_URL = "jdbc:mysql://176.58.124.95:3306/pucit";
+        final String DB_URL = "jdbc:mysql://localhost:3306/pucit";
         final String USER = "root";
         final String PASS = "mysqlroot";
         try {
