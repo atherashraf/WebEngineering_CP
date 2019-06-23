@@ -12,7 +12,7 @@ public class DBConnection {
     private PreparedStatement preparedStatement = null;
 
     public DBConnection() {
-        final String DB_URL = "jdbc:mysql://localhost:3306/pucit";
+        final String DB_URL = "jdbc:mysql://176.58.124.95:3306/pucit";
         final String USER = "root";
         final String PASS = "mysqlroot";
         try {
@@ -95,7 +95,9 @@ public class DBConnection {
     public void executeDMLOperation() {
         if (this.preparedStatement != null) {
             try {
-                this.preparedStatement.executeUpdate();
+                int i = this.preparedStatement.executeUpdate();
+                isError = false;
+                msg = (i > 1) ? i + " rows updated" : (i == 0) ?  "No row updated" : "1 row updated";
             } catch (SQLException e) {
                 isError = true;
                 msg = e.getMessage();

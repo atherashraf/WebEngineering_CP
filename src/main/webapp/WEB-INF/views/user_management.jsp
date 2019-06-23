@@ -1,4 +1,6 @@
 <%@ page isELIgnored="false" %>
+<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 <head>
     <title>PUCIT</title>
@@ -12,20 +14,20 @@
 <div class="container">
     <div class="row"><h2>${message}</h2></div>
     <div class="row">
-        <div class="col-12 alert" id="divResponseAlert"></div>
+        <%--<div class="col-12 alert" id="divResponseAlert"></div>--%>
+        <jsp:include page="/WEB-INF/views/alert_info.jsp"></jsp:include>
     </div>
     <div class="row">
         <button id="createUserTable" class="btn btn-primary btn-block">Add User Table</button>
-        <a id="insertUser" class="btn btn-primary btn-block" href="add_user_form">Add User</a>
+        <a id="insertUser" class="btn btn-primary btn-block" href="user_info/add_user_form">Add User</a>
     </div>
 </div>
 </body>
-<script src="resources/js/common_utils.js"></script>
+
 <script>
     $(function () {
-        $('#divResponseAlert').hide();
         $('#createUserTable').click(function (evt) {
-            var url = "create_user_table";
+            var url = "user_info/create_user_table";
             $.ajax({
                 url: url,
                 dataType: "json",
@@ -33,8 +35,6 @@
                     showResponseAlert(res.resType, res.msg);
                 },
                 error: function (jqXhr, textStatus, errorThrown) {
-                    // $('#divResponseAlert').text(errorThrown);
-                    // console.exception(errorThrown);
                     showResponseAlert('alert-danger', errorThrown);
                 }
             })

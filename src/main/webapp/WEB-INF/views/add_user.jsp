@@ -20,7 +20,7 @@
 <div class="container">
     <h2>${message}</h2>
     <div class="row">
-        <div class="col-12 alert" id="divResponseAlert" style="display:none"></div>
+        <jsp:include page="/WEB-INF/views/alert_info.jsp"></jsp:include>
     </div>
     <div class="row">
         <div class="col-12">
