@@ -11,14 +11,19 @@
 <head>
     <title>PUCIT</title>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href='<spring:url value="/css/base.css" />'/>
 </head>
 <body>
 <div class="container">
-    <h2>${message}</h2>
+    <div class="row text-center">
+        <h1 class="col-md-12">${message}</h1>
+    </div>
     <div class="row">
         <jsp:include page="/WEB-INF/views/alert_info.jsp"></jsp:include>
     </div>

@@ -1,0 +1,10 @@
+body{
+    /*background-color: #345c5c;*/
+    background-color: #89aed3;
+}
+.container{
+    background-color: white;
+    padding: 40px;
+    display: block;
+    min-block-size: -webkit-fill-available;
+}
