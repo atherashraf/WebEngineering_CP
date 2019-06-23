@@ -46,8 +46,6 @@ public class UserInfo {
         model.addObject("message", message);
         List<Map<String, String>> userTypes = new ArrayList();
         Map map = new HashMap();
-//        map.put("User Type", null);
-//        userTypes.add(map);
         for (UserType ut : UserType.values()) {
             map = new HashMap();
             map.put(ut.name, ut.value);
